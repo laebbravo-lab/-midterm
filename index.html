@@ -299,11 +299,232 @@
             color: #7b927b;
         }
 
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .top-menu {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+            background-color: #eef0e6;
+        }
+
+        .top-menu a {
+            color: #49634e;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            padding: 8px 18px;
+            border: 1px solid #b9c7b2;
+            border-radius: 30px;
+            background-color: #fffdf8;
+        }
+
+        .top-menu a::before {
+            content: "✿";
+            color: #dba5a4;
+            margin-right: 8px;
+        }
+
+        .top-menu a:hover {
+            background-color: #f8e9e6;
+            color: #49634e;
+        }
+
+        .menu {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .menu a {
+            display: inline-block;
+            color: #49634e;
+            text-decoration: none;
+            margin: 5px;
+            padding: 8px 18px;
+            border: 1px solid #b9c7b2;
+            border-radius: 30px;
+            background-color: #fffdf8;
+        }
+
+        .menu a::before {
+            content: "✿";
+            color: #dba5a4;
+            margin-right: 8px;
+        }
+
+        .menu a:hover {
+            background-color: #f8e9e6;
+        }
+
+        #darkModeBtn {
+            padding: 8px 18px;
+            border: 1px solid #b9c7b2;
+            border-radius: 30px;
+            background-color: #fffdf8;
+            color: #49634e;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #darkModeBtn:hover {
+            background-color: #f8e9e6;
+        }
+
+        body.dark-mode {
+            background-color: #1e2923;
+            color: #f5f1e7;
+        }
+
+        body.dark-mode .small,
+        body.dark-mode .maintitle h1,
+        body.dark-mode .maintitle em,
+        body.dark-mode .second-content,
+        body.dark-mode .garden-heading h2,
+        body.dark-mode .path-stop h3,
+        body.dark-mode .details-panel h2,
+        body.dark-mode .projects-heading h2,
+        body.dark-mode .project-card h3,
+        body.dark-mode .references-section h2 {
+            color: #f5f1e7;
+        }
+
+
+        body.dark-mode .top-menu {
+            background-color: #26352b;
+        }
+
+        body.dark-mode .second-half {
+            background-color: #303c32;
+        }
+
+        body.dark-mode .projects-section {
+            background-color: #38372f;
+        }
+
+        body.dark-mode .references-section {
+            background-color: #344238;
+        }
+
+        body.dark-mode .details-panel,
+        body.dark-mode .project-card {
+            background-color: #344238;
+            border-color: #526653;
+        }
+
+        body.dark-mode .details-panel p,
+        body.dark-mode .project-description,
+        body.dark-mode .references-intro {
+            color: #d1d9ce;
+        }
+
+        body.dark-mode .project-category,
+        body.dark-mode .project-card span {
+            color: #dba5a4;
+        }
+
+        body.dark-mode .references-links a {
+            color: #f4c2c2;
+        }
+
+        body.dark-mode .references-links a:hover {
+            color: #ffffff;
+            text-decoration-thickness: 2px;
+        }
+
+        body.dark-mode .top-menu a,
+        body.dark-mode #darkModeBtn {
+            background-color: #344238;
+            color: #f5f1e7;
+            border-color: #657b64;
+        }
+
+        body.dark-mode .top-menu a:hover,
+        body.dark-mode #darkModeBtn:hover {
+            background-color: #495c4a;
+        }
+
+        body.dark-mode .flower-button {
+            background-color: #344238;
+            color: #f4c2c2;
+            border-color: #657b64;
+        }
+
+        body.dark-mode .flower-button:hover,
+        body.dark-mode .flower-button.active {
+            background-color: #60464a;
+        }
+
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f8f6ef;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .loading-flower {
+            font-size: 55px;
+            color: #dba5a4;
+            animation: flower-spin 2s linear infinite;
+        }
+
+        #loading-screen p {
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 18px;
+            color: #49634e;
+        }
+
+        #loading-screen.hide {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        @keyframes flower-spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+
     </style>
 </head>
 
     <body>
-        <div class="small">
+        
+        <div id="loading-screen">
+            <div class="loading-flower">✿</div>
+            <p>Growing interactive resume...</p>
+        </div>
+
+        <nav class="top-menu">
+            <a href="#home">Home</a>
+            <a href="#garden">Get to Know Me</a>
+            <a href="#projects">Projects</a>
+            <a href="#references">References</a>
+            <button id="darkModeBtn">🌙 Dark Mode</button>
+        </nav>
+
+        <div class="small" id="home">
             Welcome!
         </div>
 
@@ -409,10 +630,10 @@
 
 <div class="references-section" id="references">
 
-    <h2>Reference</h2>
+    <h2>Reach Out</h2>
 
     <p class="references-intro">
-        Have a project or opportunity in mind? Feel free to reach out to me via
+       Feel free to contact me via
     </p>
 
     <div class="references-links">
@@ -501,7 +722,25 @@ gardenFlowers.forEach(function(button) {
 });
 
 
-    </script>
+const darkModeBtn = document.getElementById("darkModeBtn");
 
+darkModeBtn.addEventListener("click", function() {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        darkModeBtn.textContent = "☀️ Light Mode";
+    } else {
+        darkModeBtn.textContent = "🌙 Dark Mode";
+    }
+});
+
+
+    window.addEventListener("load", function() {
+        setTimeout(function() {
+            document.getElementById("loading-screen").classList.add("hide");
+        }, 1500);
+    });
+
+    </script>
 
 </html>
